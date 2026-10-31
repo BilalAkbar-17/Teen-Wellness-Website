@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | Teen Wellness Hub</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/interactive-bg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .search-results-container {
+            margin: 3rem auto;
+        }
+        .search-title {
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+        .search-query {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .result-item {
+            background-color: var(--bg-color-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .result-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        .result-description {
+            color: var(--text-color-light);
+            margin-bottom: 1rem;
+        }
+        .result-category {
+            display: inline-block;
+            background-color: var(--primary-color-light);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+        .result-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .result-link:hover {
+            color: var(--primary-color-dark);
+        }
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--bg-color-light);
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        .no-results i {
+            font-size: 3rem;
+            color: var(--text-color-light);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="interactive-background"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Teen<span>Wellness</span>Hub</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="physical-health.html">Physical Health</a></li>
+                    <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="nav-utilities">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn">Login / Sign Up</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Search Results</h1>
+            <p>Discovering relevant wellness content</p>
+        </div>
+    </div>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="search-results-container">
+                <h2 class="search-title">Results for: <span class="search-query" id="search-query-display"></span></h2>
+                <div id="search-results">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Teen <span>Wellness</span> Hub</h3>
+                    <p>Empowering teens to make informed decisions about their health and well-being through education, support, and community.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="physical-health.html">Physical Health</a></li>
+                        <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                        <li><a href="login.html" class="login-status">Log In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 03287690774</p>
+                        <p><i class="fas fa-envelope"></i> bilalakbar4230@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teen Wellness Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/interactive-bg.js"></script>
+    <script src="js/login-status.js"></script>
+    <script src="js/search-results.js"></script>
+</body>
+</html> 

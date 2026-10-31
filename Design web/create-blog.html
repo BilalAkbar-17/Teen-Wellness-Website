@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog Post | Teen Wellness Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Teen<span>Wellness</span>Hub</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="physical-health.html">Physical Health</a></li>
+                    <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="nav-utilities">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn">Login / Sign Up</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="interactive-background">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+        <div class="floating-shape shape5"></div>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Create New Blog Post</h1>
+            <p>Share your thoughts and experiences with the community</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="blog-form-container">
+                <form id="blogForm" class="blog-form">
+                    <div class="form-group">
+                        <label for="author-name">Your Name</label>
+                        <input type="text" id="author-name" name="author" required placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blog-title">Blog Title</label>
+                        <input type="text" id="blog-title" name="title" required placeholder="Enter your blog title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="physical-health">Physical Health</option>
+                            <option value="mental-wellbeing">Mental Well-being</option>
+                            <option value="screen-time">Screen Time</option>
+                            <option value="nutrition">Nutrition</option>
+                            <option value="sleep">Sleep</option>
+                            <option value="exercise">Exercise</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <small style="display: block; margin-top: 0.5rem; color: var(--text-color-light);">
+                            Note: Select from available categories to ensure proper filtering
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blog-image">Featured Image</label>
+                        <input type="file" id="blog-image" name="image" accept="image/*">
+                        <div class="image-preview" id="imagePreview"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blog-content">Content</label>
+                        <textarea id="blog-content" name="content" required placeholder="Write your blog post here..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blog-tags">Tags (comma-separated)</label>
+                        <input type="text" id="blog-tags" name="tags" placeholder="e.g., wellness, health, tips">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary-btn" id="publishButton">
+                            <i class="fas fa-paper-plane"></i> Publish Post
+                        </button>
+                        <button type="button" class="btn secondary-btn" onclick="window.location.href='blog.html'">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Teen <span>Wellness</span> Hub</h3>
+                    <p>Empowering teens to make informed decisions about their health and well-being through education, support, and community.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="physical-health.html">Physical Health</a></li>
+                        <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                        <li><a href="login.html" class="login-status">Log In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 03287690774</p>
+                        <p><i class="fas fa-envelope"></i> bilalakbar4230@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teen Wellness Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script>
+
+        if (typeof firebase === 'undefined') {
+            console.error('Firebase SDK failed to load! Will use local storage only.');
+        } else {
+            console.log('Firebase SDK loaded successfully!');
+        }
+    </script>
+    <script src="js/firebase-config.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/interactive-bg.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login-status.js"></script>
+    <script src="js/blog-form.js"></script>
+</body>
+</html>

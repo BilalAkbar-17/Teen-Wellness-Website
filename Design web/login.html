@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Teen Wellness Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Teen<span>Wellness</span>Hub</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="physical-health.html">Physical Health</a></li>
+                    <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="nav-utilities">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn active">Login / Sign Up</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="interactive-background">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+        <div class="floating-shape shape5"></div>
+    </div>
+
+    <main class="login-page">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+
+                <div class="auth-forms">
+                    <form id="login-form" class="auth-form active">
+                        <h2>Welcome Back!</h2>
+                        <p class="form-subtitle">Log in to access personalized wellness content, track your progress, and connect with the community.</p>
+
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="login-email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="login-password" placeholder="Enter your password" required>
+                                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye-slash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Remember me</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn primary-btn login-submit">Log In</button>
+                    </form>
+
+                    <form id="signup-form" class="auth-form">
+                        <h2>Create Your Account</h2>
+                        <p class="form-subtitle">Join our community of teens working toward better physical and mental wellness.</p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="first-name" placeholder="First name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="last-name" placeholder="Last name" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="signup-password" placeholder="Create a password" required>
+                                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye-slash"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-meter">
+                                    <div class="strength-segment"></div>
+                                    <div class="strength-segment"></div>
+                                    <div class="strength-segment"></div>
+                                    <div class="strength-segment"></div>
+                                </div>
+                                <p class="strength-text">Password strength: <span>Weak</span></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group age-verification">
+                            <label for="birthdate">Birth Date</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                                <input type="date" id="birthdate" required>
+                            </div>
+                            <p class="age-notice">Users must be 13-19 years old</p>
+                        </div>
+
+                        <button type="submit" class="btn primary-btn signup-submit">Create Account</button>
+
+                        <div class="parent-consent">
+                            <p>For teens under 16, parental consent will be required.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="auth-benefits">
+                <div class="benefits-content">
+                    <h2>Benefits of Creating an Account</h2>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Personalized Wellness Plan</h3>
+                                <p>Get recommendations based on your lifestyle and goals</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Track Your Progress</h3>
+                                <p>Monitor your wellness journey over time</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Join The Community</h3>
+                                <p>Connect with other teens on similar wellness journeys</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>Exclusive Content</h3>
+                                <p>Access special articles, challenges, and resources</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Teen <span>Wellness</span> Hub</h3>
+                    <p>Empowering teens to make informed decisions about their health and well-being through education, support, and community.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="physical-health.html">Physical Health</a></li>
+                        <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                        <li><a href="login.html" class="login-status">Log In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 03287690774</p>
+                        <p><i class="fas fa-envelope"></i> bilalakbar4230@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teen Wellness Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/login-status.js"></script>
+</body>
+</html>

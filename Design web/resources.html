@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Teen Wellness Hub</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/topic-pages.css">
+    <link rel="stylesheet" href="css/interactive-bg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .resources-container {
+            margin: 2rem 0;
+        }
+        
+        .resource-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            background-color: var(--bg-color-light);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .resource-card {
+            background-color: var(--bg-color-light);
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .resource-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .resource-card:hover .resource-image img {
+            transform: scale(1.05);
+        }
+        
+        .resource-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .resource-content {
+            padding: 1.5rem;
+        }
+        
+        .resource-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .resource-content p {
+            color: var(--text-color-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .resource-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-color-light);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .resource-link:hover {
+            color: var(--primary-color-dark);
+        }
+        
+        .resource-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        /* Resource search input - moved below to avoid confusion with nav search */
+        #resourceSearch {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color-light);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            transition: all 0.3s ease;
+        }
+        
+        #resourceSearch:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color-light);
+            border-color: var(--primary-color);
+        }
+        
+        /* Add styling for the resource search container */
+        .resource-search-container {
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .external-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .external-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .external-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .external-list a {
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+        
+        .external-list a:hover {
+            color: var(--primary-color);
+        }
+        
+        .external-list a i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="interactive-background"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Teen<span>Wellness</span>Hub</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="physical-health.html">Physical Health</a></li>
+                    <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="nav-utilities">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn">Login / Sign Up</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Wellness Resources</h1>
+            <p>Curated content to support your physical and mental well-being in the digital age</p>
+        </div>
+    </div>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-article">
+                    <p class="page-intro">Explore our comprehensive collection of articles, videos, tools, and external resources to help you navigate the challenges of modern teen life and enhance your overall wellness.</p>
+                    
+                    <div class="resource-search-container">
+                        <input type="text" id="resourceSearch" placeholder="Search resources...">
+                    </div>
+                    
+                    <div class="resource-filters">
+                        <button class="filter-btn active" data-filter="all">All Resources</button>
+                        <button class="filter-btn" data-filter="physical">Physical Health</button>
+                        <button class="filter-btn" data-filter="mental">Mental Well-being</button>
+                        <button class="filter-btn" data-filter="digital">Digital Wellness</button>
+                        <button class="filter-btn" data-filter="nutrition">Nutrition</button>
+                        <button class="filter-btn" data-filter="sleep">Sleep</button>
+                        <button class="filter-btn" data-filter="exercise">Exercise</button>
+                    </div>
+                    
+                    <div class="resources-container">
+                        <div class="resource-section" id="articles-section">
+                            <div class="section-header">
+                                <h2>Articles & Guides</h2>
+                            </div>
+                            <div class="resource-grid">
+                                <div class="resource-card" data-category="physical nutrition">
+                                    <div class="resource-image">
+                                        <img src="images/teen-nutrition.jpeg" alt="Teen nutrition">
+                                        <div class="resource-category">Nutrition</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Understanding Teen Nutrition Needs</h3>
+                                        <p>Learn about essential nutrients for growing teens and how to maintain a balanced diet in today's fast-food culture.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="far fa-file-alt"></i> Article</span>
+                                        </div>
+                                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1616021/pdf/healthservrep00043-0061.pdf" class="resource-link" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card" data-category="physical exercise">
+                                    <div class="resource-image">
+                                        <img src="images/teen-exercising.jpg" alt="Teen exercise">
+                                        <div class="resource-category">Exercise</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>15 Easy Exercises You Can Do at Home</h3>
+                                        <p>Simple, effective workouts that require minimal or no equipment, perfect for teens with busy schedules.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="far fa-file-alt"></i> Guide</span>
+                                        </div>
+                                        <a href="https://www.hingehealth.com/resources/articles/how-to-exercise-at-home/" class="resource-link" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card" data-category="mental">
+                                    <div class="resource-image">
+                                        <img src="images/managing-anxiety.jpg" alt="Managing Anxiety">
+                                        <div class="resource-category">Mental Health</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Managing Anxiety in High School</h3>
+                                        <p>Practical strategies to recognize and manage anxiety symptoms during your academic journey.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="far fa-file-alt"></i> Article</span>
+                                        </div>
+                                        <a href="https://www.journals.irapa.org/index.php/aessr/article/download/399/205.pdf" class="resource-link" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card" data-category="mental digital">
+                                    <div class="resource-image">
+                                        <img src="images/healthy-habits.jpeg" alt="Healthy Habits">
+                                        <div class="resource-category">Digital Wellness</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Building Healthy Online Habits</h3>
+                                        <p>Learn how to maintain a positive digital presence and manage your social media use for better mental health.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="far fa-file-alt"></i> Guide</span>
+                                        </div>
+                                        <a href="https://www.academia.edu/download/117533978/UNESCO_Workbook_v2023_0918_0619.pdf#page=78.pdf" class="resource-link" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                                <div class="resource-card" data-category="physical sleep">
+                                    <div class="resource-image">
+                                        <img src="images/sleeping-hygiene.jpg" alt="Sleep hygiene">
+                                        <div class="resource-category">Sleep</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Sleep Tips for Better Academic Performance</h3>
+                                        <p>Discover how quality sleep directly impacts your learning ability and how to improve your sleep habits.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="far fa-file-alt"></i> Article</span>
+                                        </div>
+                                        <a href="http://kvccdocs.com/KVCC/2018-JAN/PSY101/lessons/L-04/sleep-loss.pdf" class="resource-link" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card" data-category="mental">
+                                    <div class="resource-image">
+                                        <img src="images/mindfulness-teens.jpg" alt="Mindfulness for teens">
+                                        <div class="resource-category">Mental Health</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Mindfulness for Teens</h3>
+                                        <p>Simple, practical mindfulness techniques that teens can incorporate into their daily routines.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="far fa-file-alt"></i> Guide</span>
+                                        </div>
+                                        <a href="https://www.academia.edu/download/81181249/Britton_202015_20chapter_20in_20Teaching_20Mindfulness_20to_20Kid_20_Teens.pdf" class="resource-link" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+
+                        <div class="resource-section" id="videos-section">
+                            <div class="section-header">
+                                <h2>Video Resources</h2>
+                            </div>
+                            <div class="resource-grid">
+                                <div class="resource-card" data-category="physical">
+                                    <div class="resource-image">
+                                        <img src="images/modern-lifestyle.jpg" alt="Why Modern Life Is Making Us Sick">
+                                        <div class="resource-category">Physical Health</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Why Modern Life Is Making Us Sick</h3>
+                                        <p>Learn how today's digital lifestyle affects teen physical development and health.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-video"></i> Video</span>
+                                        </div>
+                                        <a href="https://www.youtube.com/watch?v=LfDHz_1W_bI" class="resource-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card" data-category="physical">
+                                    <div class="resource-image">
+                                        <img src="images/physical-health-solutions.jpg" alt="Physical Health Solutions">
+                                        <div class="resource-category">Physical Health</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>How to EASILY Kick Start A Healthy Lifestyle FAST!!</h3>
+                                        <p>Effective strategies for maintaining physical health in the digital age.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-video"></i> Video</span>
+                                        </div>
+                                        <a href="https://www.youtube.com/watch?v=Y8HIFRPU6pM" class="resource-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="resource-card" data-category="mental">
+                                    <div class="resource-image">
+                                        <img src="images/digital-mental-health.jpg" alt="Digital Mental Health">
+                                        <div class="resource-category">Mental Health</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>How Social Media Impacts Mental Health</h3>
+                                        <p>Understanding how social media and digital connectivity affect teen mental wellbeing.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-video"></i> Video</span>
+                                        </div>
+                                        <a href="https://www.youtube.com/watch?v=pCM0VWFC2v4" class="resource-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div class="resource-card" data-category="mental">
+                                    <div class="resource-image">
+                                        <img src="images/digital-wellness-strategies.jpg" alt="Digital Wellness">
+                                        <div class="resource-category">Mental Health</div>
+                                    </div>
+                                    <div class="resource-content">
+                                        <h3>Mental Health Wellness Tips</h3>
+                                        <p>Practical approaches to maintaining mental wellbeing in the connected world.</p>
+                                        <div class="resource-meta">
+                                            <span><i class="fas fa-video"></i> Video</span>
+                                        </div>
+                                        <a href="https://www.youtube.com/watch?v=NQcYZplTXnQ" class="resource-link" target="_blank">Watch Video <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resource-section" id="external-section">
+                            <div class="section-header">
+                            <h2>External Resources</h2>
+                            </div>
+                            <div class="resource-content">
+                                <h3 id="exercise-resources">Physical Activity Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.cdc.gov/physical-activity-education/guidelines/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>CDC: Physical Activity Guidelines for Teens</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.aap.org/en/patient-care/healthy-active-living-for-families/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>American Academy of Pediatrics: Healthy Active Living</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.heart.org/en/healthy-living/fitness/fitness-basics/aha-recs-for-physical-activity-in-children" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>American Heart Association: Recommendations for Physical Activity</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <h3 id="nutrition-resources">Nutrition Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.who.int/health-topics/adolescent-health" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>WHO: Adolescent Health Resources</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.nutrition.gov/topics/nutrition-age/teens" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Nutrition.gov: Teen Nutrition Guide</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.choosemyplate.gov/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>MyPlate: Healthy Eating Guidelines</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <h3 id="sleep-resources">Sleep Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.sleepfoundation.org/teens-and-sleep" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Sleep Foundation: Teens and Sleep</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>NHS: Sleep Hygiene</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://kidshealth.org/en/teens/sleep.html" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>KidsHealth: Common Sleep Problems for Teens</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <h3 id="mental-resources">Mental Health Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.nami.org/Your-Journey/Kids-Teens-and-Young-Adults/Teens" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>NAMI: Teen Mental Health Resources</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>NIMH: Anxiety Disorders in Teens</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.apa.org/topics/anxiety" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>American Psychological Association: Anxiety Resources</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <h3 id="digital-resources">Digital Wellness Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.apa.org/topics/social-media-internet/technology-use-children" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>APA: Digital Guidelines for Young People</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.aacap.org/AACAP/Families_and_Youth/Facts_for_Families/FFF-Guide/Social-Media-and-Teens-100.aspx" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>AACAP: Social Media and Teens</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <h3 id="relationships-resources">Healthy Relationships Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.loveisrespect.org/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Love Is Respect: Healthy Relationships</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.plannedparenthood.org/learn/relationships" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Planned Parenthood: Relationship Resources</span>
+                                        </a>
+                                    </li>
+                                    </ul>
+                                
+                                <h3 id="mindfulness-resources">Mindfulness Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://www.mindful.org/5-ways-to-help-teens-engage-in-mindfulness-sessions/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Mindful.org: Mindfulness for Teens</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.apa.org/topics/mindfulness/meditation" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>APA: Mindfulness Meditation</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://childmind.org/article/the-power-of-mindfulness/" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Child Mind Institute: The Power of Mindfulness</span>
+                                        </a>
+                                    </li>
+                                    </ul>
+
+                                <h3>Crisis Support Resources</h3>
+                                <ul class="external-list">
+                                    <li>
+                                        <a href="https://988lifeline.org/" target="_blank">
+                                            <i class="fas fa-phone"></i>
+                                            <span>988 Suicide & Crisis Lifeline: Call or text 988</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.crisistextline.org/" target="_blank">
+                                            <i class="fas fa-comment-dots"></i>
+                                            <span>Crisis Text Line: Text HOME to 741741</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.thetrevorproject.org/" target="_blank">
+                                            <i class="fas fa-heart"></i>
+                                            <span>The Trevor Project: LGBTQ+ Youth Support</span>
+                                        </a>
+                                    </li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Teen <span>Wellness</span> Hub</h3>
+                    <p>Empowering teens to make informed decisions about their health and well-being through education, support, and community.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="physical-health.html">Physical Health</a></li>
+                        <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                        <li><a href="login.html" class="login-status">Log In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 03287690774</p>
+                        <p><i class="fas fa-envelope"></i> bilalakbar4230@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teen Wellness Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/interactive-bg.js"></script>
+    <script src="js/login-status.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    resourceCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            const searchInput = document.getElementById('resourceSearch');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                resourceCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category').toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

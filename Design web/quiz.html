@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Quiz | Teen Wellness Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Teen<span>Wellness</span>Hub</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="physical-health.html">Physical Health</a></li>
+                    <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="nav-utilities">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn">Login / Sign Up</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Wellness Assessment Quiz</h1>
+            <p>Take this quiz to evaluate your current wellness level and get personalized recommendations</p>
+        </div>
+    </div>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-article">
+                    <div class="quiz-container">
+                        <h2>Wellness Assessment</h2>
+                        <p class="quiz-intro">Take this quick assessment to understand your current wellness status and get personalized recommendations.</p>
+                        
+                        <form id="wellness-quiz" class="quiz-form">
+                            <div class="quiz-warning">
+                                Please select an option before proceeding to the next question.
+                            </div>
+                            
+                            <div class="quiz-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">Question 1 of 10</span>
+                            </div>
+
+                            <div class="quiz-question active" data-question="1">
+                                <h2>How many hours do you typically spend on screens (phones, tablets, computers) per day?</h2>
+                                <div class="quiz-options">
+                                    <label class="quiz-option">
+                                        <input type="radio" name="screen-time" value="1">
+                                        <span>Less than 2 hours</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="screen-time" value="2">
+                                        <span>2-4 hours</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="screen-time" value="3">
+                                        <span>4-6 hours</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="screen-time" value="4">
+                                        <span>More than 6 hours</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question" data-question="2">
+                                <h2>How many hours of sleep do you get on average?</h2>
+                                <div class="quiz-options">
+                                    <label class="quiz-option">
+                                        <input type="radio" name="sleep" value="1">
+                                        <span>Less than 6 hours</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="sleep" value="2">
+                                        <span>6-7 hours</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="sleep" value="3">
+                                        <span>7-8 hours</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="sleep" value="4">
+                                        <span>More than 8 hours</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question" data-question="3">
+                                <h2>How often do you engage in physical activity?</h2>
+                                <div class="quiz-options">
+                                    <label class="quiz-option">
+                                        <input type="radio" name="exercise" value="1">
+                                        <span>Rarely or never</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="exercise" value="2">
+                                        <span>1-2 times per week</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="exercise" value="3">
+                                        <span>3-4 times per week</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="exercise" value="4">
+                                        <span>5 or more times per week</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question" data-question="4">
+                                <h2>How would you rate your stress levels?</h2>
+                                <div class="quiz-options">
+                                    <label class="quiz-option">
+                                        <input type="radio" name="stress" value="1">
+                                        <span>Very high stress</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="stress" value="2">
+                                        <span>Moderate stress</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="stress" value="3">
+                                        <span>Low stress</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="stress" value="4">
+                                        <span>Very low stress</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question" data-question="5">
+                                <h2>How would you describe your eating habits?</h2>
+                                <div class="quiz-options">
+                                    <label class="quiz-option">
+                                        <input type="radio" name="nutrition" value="1">
+                                        <span>Irregular and unhealthy</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="nutrition" value="2">
+                                        <span>Sometimes healthy</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="nutrition" value="3">
+                                        <span>Mostly healthy</span>
+                                    </label>
+                                    <label class="quiz-option">
+                                        <input type="radio" name="nutrition" value="4">
+                                        <span>Very healthy and balanced</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-navigation">
+                                <button type="button" class="btn secondary-btn prev-btn" style="border-radius: 50px; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; padding: 0;" disabled><i class="fas fa-arrow-left"></i></button>
+                                <button type="button" class="btn primary-btn next-btn" style="border-radius: 50px; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; padding: 0;"><i class="fas fa-arrow-right"></i></button>
+                                <button type="submit" class="btn primary-btn submit-btn" style="border-radius: 50px; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; padding: 0; display: none;"><i class="fas fa-check"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <aside class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Quiz Tips</h3>
+                        <ul class="quiz-tips">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Be Honest</h4>
+                                    <p>Answer truthfully for accurate results</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Take Your Time</h4>
+                                    <p>Think carefully about each answer</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Track Progress</h4>
+                                    <p>Retake the quiz monthly to monitor changes</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Benefits of Taking the Quiz</h3>
+                        <ul class="quiz-benefits">
+                            <li><i class="fas fa-star"></i> Personalized wellness score</li>
+                            <li><i class="fas fa-list-check"></i> Custom recommendations</li>
+                            <li><i class="fas fa-chart-bar"></i> Progress tracking</li>
+                            <li><i class="fas fa-lightbulb"></i> Actionable tips</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Teen <span>Wellness</span> Hub</h3>
+                    <p>Empowering teens to make informed decisions about their health and well-being through education, support, and community.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="physical-health.html">Physical Health</a></li>
+                        <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                        <li><a href="login.html" class="login-status">Log In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 03287690774</p>
+                        <p><i class="fas fa-envelope"></i> bilalakbar4230@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teen Wellness Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/interactive-bg.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/login-status.js"></script>
+</body>
+</html>

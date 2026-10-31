@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teen Wellness Hub | Modern Lifestyle & Physical Well-being</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/interactive-bg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        .testimonial-slider {
+            min-height: 200px;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial {
+            background-color: var(--bg-color-light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color-light);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .prev-btn, .next-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background-color: var(--primary-color-dark);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Teen<span>Wellness</span>Hub</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="physical-health.html">Physical Health</a></li>
+                    <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="nav-utilities">
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="login-btn">Login / Sign Up</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Redefining Teen Wellness in the Digital Age</h1>
+                <p>Discover how modern lifestyle choices impact physical and mental well-being and learn strategies to thrive in today's fast-paced world.</p>
+                <div class="hero-buttons">
+                    <a href="#explore" class="btn primary-btn">Explore Topics</a>
+                    <a href="#quiz" class="btn secondary-btn">Take Wellness Quiz</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/teen-wellness-hero.jpg" alt="Teens engaging in healthy activities">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>6+ Hours</h3>
+                    <p>Average daily screen time for teens</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>7 Hours</h3>
+                    <p>Recommended sleep for teens</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-running"></i>
+                    <h3>60 Minutes</h3>
+                    <p>Daily physical activity needed</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>1 in 3</h3>
+                    <p>Teens experience stress regularly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="explore" class="topics-section">
+        <div class="container">
+            <h2 class="section-title">Key Wellness Topics</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <img src="images/physical-health.jpg" alt="Physical health activities">
+                    <h3>Physical Health</h3>
+                    <p>Learn essential physical health practices including nutrition, exercise, and healthy habits for teens.</p>
+                    <a href="physical-health.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="topic-card">
+                    <img src="images/mental-wellbeing.jpg" alt="Mental wellbeing practices">
+                    <h3>Mental Well-being</h3>
+                    <p>Discover strategies to maintain good mental health, manage stress, and build emotional resilience.</p>
+                    <a href="mental-wellbeing.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="topic-card">
+                    <img src="images/screen-time.jpg" alt="Teen using digital devices">
+                    <h3>Screen Time Impact</h3>
+                    <p>Discover how excessive screen time affects physical health and learn healthy digital habits.</p>
+                    <a href="screen-time.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="topic-card">
+                    <img src="images/nutrition.jpg" alt="Healthy food for teens">
+                    <h3>Modern Nutrition</h3>
+                    <p>Explore balanced nutrition strategies for growing teens in today's fast-food culture.</p>
+                    <a href="nutrition.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="topic-card">
+                    <img src="images/sleep.jpg" alt="Teen sleeping peacefully">
+                    <h3>Sleep Patterns</h3>
+                    <p>Understand how technology disrupts sleep and discover techniques for better rest.</p>
+                    <a href="sleep.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="topic-card">
+                    <img src="images/exercise.jpg" alt="Teens exercising together">
+                    <h3>Exercise</h3>
+                    <p>Find fun ways to stay active despite the sedentary pull of digital entertainment.</p>
+                    <a href="exercise.html" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="interactive-section" id="quiz">
+        <div class="container">
+            <div style="background-color: var(--bg-color-light); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-lg); display: flex; align-items: center; justify-content: space-between;">
+                <div class="interactive-content">
+                    <h2>How Healthy Is Your Lifestyle?</h2>
+                    <p>Take our interactive quiz to assess your current wellness level and get personalized recommendations.</p>
+                    <a href="quiz.html" id="quiz" class="btn primary-btn">Start Quiz</a>
+                </div>
+                <div class="interactive-visual">
+                    <div class="wellness-meter">
+                        <div class="meter-dial">
+                            <div class="meter-pointer"></div>
+                        </div>
+                        <div class="meter-labels">
+                            <span>Needs Work</span>
+                            <span>Good</span>
+                            <span>Excellent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Success Stories</h2>
+            <div class="testimonial-slider">
+
+            </div>
+            <div class="slider-controls">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots">
+
+                </div>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="share-story-container" style="text-align: center;">
+                <a href="#" data-target="write-story.html" class="btn primary-btn" id="write-story-btn">Write Your Story</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Teen <span>Wellness</span> Hub</h3>
+                    <p>Empowering teens to make informed decisions about their health and well-being through education, support, and community.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="physical-health.html">Physical Health</a></li>
+                        <li><a href="mental-wellbeing.html">Mental Well-being</a></li>
+                        <li><a href="login.html" class="login-status">Log In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 03287690774</p>
+                        <p><i class="fas fa-envelope"></i> bilalakbar4230@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teen Wellness Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script>
+
+        if (typeof firebase === 'undefined') {
+            console.error('Firebase SDK failed to load! Will use local storage only.');
+        } else {
+            console.log('Firebase SDK loaded successfully!');
+        }
+    </script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/interactive-bg.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login-status.js"></script>
+    <script src="js/story-form.js"></script>
+</body>
+</html>

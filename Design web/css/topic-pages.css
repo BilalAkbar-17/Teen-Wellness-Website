@@ -1,0 +1,211 @@
+.topic-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.topic-section h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.topic-section h3 {
+    font-size: var(--font-size-xl);
+    color: var(--text-color);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+.topic-section h4 {
+    font-size: var(--font-size-lg);
+    color: var(--text-color);
+    margin: var(--spacing-md) 0 var(--spacing-xs);
+}
+
+.topic-section p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color);
+}
+
+.topic-section ul {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+}
+
+.topic-section ul li {
+    list-style-type: disc;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-color);
+}
+
+.info-box {
+    background-color: rgba(66, 153, 225, 0.1);
+    border-left: 4px solid var(--info-color);
+    padding: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.info-box:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.info-box h4 {
+    color: var(--info-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-box p {
+    margin-bottom: 0;
+}
+
+.content-article {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--spacing-xl);
+    transition: all var(--transition-normal);
+}
+
+.content-article:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.page-intro {
+    font-size: var(--font-size-lg);
+    color: var(--text-color-light);
+    margin-bottom: var(--spacing-xl);
+    border-left: 4px solid var(--primary-color);
+    padding-left: var(--spacing-md);
+    font-weight: 500;
+}
+
+.media-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.topic-image {
+    max-width: 100%;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+}
+
+.topic-image:hover {
+    transform: scale(1.02);
+}
+
+.media-caption {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    margin: 2rem 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.two-column-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.two-column-list > div,
+.two-column-list > ul {
+    flex: 1;
+}
+
+.screen-time .info-box {
+    background-color: rgba(79, 209, 197, 0.1);
+    border-left-color: var(--secondary-color);
+}
+
+.screen-time .info-box h4 {
+    color: var(--secondary-color);
+}
+
+.nutrition .info-box {
+    background-color: rgba(72, 187, 120, 0.1);
+    border-left-color: var(--success-color);
+}
+
+.nutrition .info-box h4 {
+    color: var(--success-color);
+}
+
+.sleep .info-box {
+    background-color: rgba(102, 126, 234, 0.1);
+    border-left-color: var(--primary-color);
+}
+
+.sleep .info-box h4 {
+    color: var(--primary-color);
+}
+
+.exercise .info-box {
+    background-color: rgba(237, 137, 54, 0.1);
+    border-left-color: var(--warning-color);
+}
+
+.exercise .info-box h4 {
+    color: var(--warning-color);
+}
+
+.quick-tips li i.fa-mobile-alt,
+.quick-tips li i.fa-laptop {
+    color: var(--secondary-color);
+}
+
+.quick-tips li i.fa-utensils,
+.quick-tips li i.fa-apple-alt {
+    color: var(--success-color);
+}
+
+.quick-tips li i.fa-bed,
+.quick-tips li i.fa-moon {
+    color: var(--primary-color);
+}
+
+.quick-tips li i.fa-running,
+.quick-tips li i.fa-dumbbell {
+    color: var(--warning-color);
+}
+
+@media (max-width: 768px) {
+    .topic-section h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .topic-section h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .info-box {
+        padding: var(--spacing-sm);
+    }
+
+    .two-column-list {
+        flex-direction: column;
+        gap: 0;
+    }
+}
